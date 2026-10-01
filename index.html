@@ -1,1 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Max // Engineering Portfolio</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="app-shell">
+  <nav class="sidebar" aria-label="Sections">
+    <div class="sidebar-brand">Max Costa</div>
+    <ul class="nav-list">
+      <li><button class="nav-tab" data-section="home">Home</button></li>
+      <li><button class="nav-tab" data-section="resume">Resume</button></li>
+      <li><button class="nav-tab" data-section="projects">Projects</button></li>
+      <li><button class="nav-tab" data-section="contact">Contact Me</button></li>
+    </ul>
+    <div class="sidebar-footer">
+      <span class="footer-text">Engineering portfolio</span>
+    </div>
+  </nav>
 
+  <main class="main-panel">
+
+    <!-- HOME -->
+    <section class="section-view" id="section-home">
+      <header class="hero">
+        <svg class="scene" viewBox="0 150 1200 550" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+          <defs>
+            <linearGradient id="bandGradient" gradientUnits="userSpaceOnUse" x1="0" y1="220" x2="0" y2="510">
+              <stop offset="0%" stop-color="#ffe066" />
+              <stop offset="45%" stop-color="#ffb020" />
+              <stop offset="100%" stop-color="#ff6a10" />
+            </linearGradient>
+            <linearGradient id="skyGradient" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="700">
+              <stop class="sky-stop-top" offset="0%" />
+              <stop class="sky-stop-bottom" offset="100%" />
+            </linearGradient>
+          </defs>
+          <rect x="0" y="0" width="1200" height="700" fill="url(#skyGradient)" />
+          <g id="star-field"></g>
+          <g id="bands-group"></g>
+          <g class="scene-layer layer-far">
+            <g><polygon fill="#1e2270" points="0,455 90,395 170,430 260,375 350,425 450,365 540,410 620,370 710,415 800,368 890,420 980,385 1070,430 1160,392 1200,455 1200,700 0,700" /></g>
+            <g transform="translate(1200,0)"><polygon fill="#1e2270" points="0,455 90,395 170,430 260,375 350,425 450,365 540,410 620,370 710,415 800,368 890,420 980,385 1070,430 1160,392 1200,455 1200,700 0,700" /></g>
+          </g>
+          <g class="scene-layer layer-mid">
+            <g><polygon fill="#181b5e" points="0,520 80,470 180,505 300,445 400,492 480,398 545,495 600,514 660,492 720,388 800,480 900,442 1000,500 1100,455 1200,520 1200,700 0,700" /></g>
+            <g transform="translate(1200,0)"><polygon fill="#181b5e" points="0,520 80,470 180,505 300,445 400,492 480,398 545,495 600,514 660,492 720,388 800,480 900,442 1000,500 1100,455 1200,520 1200,700 0,700" /></g>
+          </g>
+          <g class="scene-layer layer-fg">
+            <g><polygon fill="#101233" points="0,600 120,545 240,586 360,530 480,576 600,540 720,582 840,534 960,578 1080,546 1200,600 1200,700 0,700" /></g>
+            <g transform="translate(1200,0)"><polygon fill="#101233" points="0,600 120,545 240,586 360,530 480,576 600,540 720,582 840,534 960,578 1080,546 1200,600 1200,700 0,700" /></g>
+          </g>
+        </svg>
+        <div class="hero-text">
+          <h1 class="hero-name">Max Costa</h1>
+          <p class="hero-role">Engineering student and maker</p>
+        </div>
+      </header>
+
+      <div class="content">
+        <div class="block">
+          <h2 class="block-title">Summary</h2>
+          <p class="prose">im just him high key. </p>
+        </div>
+
+        <div class="block">
+          <h2 class="block-title">Experience</h2>
+          <ol class="timeline">
+            <li class="job">
+              <div class="job-head"><h3 class="job-title">Role Title</h3><span class="job-dates">2025 to present</span></div>
+              <p class="job-org">Organization name</p>
+              <p class="prose">Placeholder description of what i did and the result.</p>
+            </li>
+            <li class="job">
+              <div class="job-head"><h3 class="job-title">Role Title</h3><span class="job-dates">2024 to 2025</span></div>
+              <p class="job-org">Organization name</p>
+              <p class="prose">Placeholder description of what i did and the result.</p>
+            </li>
+            <li class="job">
+              <div class="job-head"><h3 class="job-title">Role Title</h3><span class="job-dates">2023 to 2024</span></div>
+              <p class="job-org">Organization name</p>
+              <p class="prose">Placeholder description of what i did and the result.</p>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESUME -->
+    <section class="section-view" id="section-resume">
+      <div class="content">
+        <div class="section-header">
+          <h1 class="section-title">Resume</h1>
+          <p class="section-sub"></p>
+          <a class="btn-primary" href="Resume.pdf" download>Download PDF</a>
+        </div>
+        <div class="block">
+          <h2 class="block-title">Education</h2>
+          <div class="job-head"><h3 class="job-title">Degree or program</h3><span class="job-dates">2023 to 2027</span></div>
+          <p class="job-org">School name</p>
+        </div>
+        <div class="block">
+          <h2 class="block-title">Skills</h2>
+          <ul class="chips">
+            <li>Embedded C/C++</li><li>PCB design</li><li>Python</li><li>Signal processing</li><li>CAD</li><li>Git</li>
+          </ul>
+        </div>
+        <div class="block">
+          <h2 class="block-title">Certifications and awards</h2>
+          <p class="prose">Placeholder entry 1.</p>
+          <p class="prose">Placeholder entry 2.</p>
+          <p class="prose">Etc.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section-view" id="section-projects">
+      <div class="content">
+        <div class="section-header">
+          <h1 class="section-title">Projects</h1>
+          <p class="section-sub">Selected hardware and software work</p>
+        </div>
+        <div class="project-grid">
+          <article class="project">
+            <h3 class="project-title">Project name</h3>
+            <p class="prose">Placeholder: one sentence on what it is and the problem it solves.</p>
+            <ul class="chips"><li>Firmware</li><li>PCB</li></ul>
+            <a class="project-link" href="#">View project</a>
+          </article>
+          <article class="project">
+            <h3 class="project-title">Project name</h3>
+            <p class="prose">Placeholder: one sentence on what it is and the problem it solves.</p>
+            <ul class="chips"><li>Python</li><li>Machine learning</li></ul>
+            <a class="project-link" href="#">View project</a>
+          </article>
+          <article class="project">
+            <h3 class="project-title">Project name</h3>
+            <p class="prose">Placeholder: one sentence on what it is and the problem it solves.</p>
+            <ul class="chips"><li>Web</li><li>Backend</li></ul>
+            <a class="project-link" href="#">View project</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section-view" id="section-contact">
+      <div class="content">
+        <div class="section-header">
+          <h1 class="section-title">Contact</h1>
+          <p class="section-sub">Best way to reach me is by email</p>
+        </div>
+        <div class="block">
+          <dl class="contact-list">
+            <dt>Email</dt><dd><a href="mailto:maxwellcosta2009@gmail.com">you@example.com</a></dd>
+            <dt>GitHub</dt><dd><a href="https://github.com/dawhizzcat">github.com/dawhizzcat</a></dd>
+            <dt>LinkedIn</dt><dd><a href="https://www.linkedin.com/">linkedin.com/in/name</a></dd>
+            <dt>Location</dt><dd>Amherst, Massachusetts</dd>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+<script src="main.js"></script>
+</body>
+</html>
