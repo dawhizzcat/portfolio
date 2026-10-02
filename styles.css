@@ -101,6 +101,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid #fff; outline-offset:
 .nav-list li:nth-child(2) .nav-tab { width: 100%; }
 .nav-list li:nth-child(3) .nav-tab { width: 82%; }
 .nav-list li:nth-child(4) .nav-tab { width: 95%; }
+.nav-list li:nth-child(5) .nav-tab { width: 86%; }
 
 /* heat radiates out from the active tab */
 .nav-tab.heat-1 { background: var(--lh-amber); }
@@ -275,23 +276,73 @@ body.time-night .layer-fg { filter: brightness(0.62); }
   font-size: 12px;
 }
 
-.project-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; }
+.project-grid { position: relative; display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 52px; }
 
 .project {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  color: inherit;
+  text-decoration: none;
   background: var(--panel);
   border: 1px solid var(--line);
   border-top: 4px solid var(--lh-orange);
   border-radius: var(--radius);
-  padding: 18px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+  transition: border-color 0.15s ease, transform 0.15s ease;
 }
 
 .project:nth-child(2) { border-top-color: var(--lh-amber); }
 .project:nth-child(3) { border-top-color: var(--lh-yellow); }
+.project:hover { border-color: var(--lh-gold); transform: translateY(-2px); }
+
+.project-body { padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 12px; flex: 1; }
 .project-title { margin: 0; font-size: 16px; font-weight: 600; }
-.project-link { margin-top: auto; font-size: 13px; font-weight: 600; }
+.project-link { margin-top: auto; font-size: 13px; font-weight: 600; color: var(--lh-yellow); }
+.project:hover .project-link { text-decoration: underline; }
+
+/* thumbnail slot: drop an <img> inside to replace the placeholder */
+.project-thumb {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: repeating-linear-gradient(135deg, var(--lh-blue-deep) 0 14px, #262b8f 14px 28px);
+  border-bottom: 1px solid var(--line);
+}
+
+.project-thumb span { font-family: var(--mono); font-size: 12px; color: rgba(255, 224, 26, 0.8); }
+.project-thumb img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+
+/* ---------- project detail page ---------- */
+
+a.nav-tab { text-decoration: none; }
+.back-link { display: inline-block; margin-bottom: 20px; font-family: var(--mono); font-size: 12px; text-decoration: none; }
+.back-link:hover { text-decoration: underline; }
+.detail-title { font-size: 30px; }
+.detail-chips { margin-top: 14px; }
+.detail-hero { border: 1px solid var(--line); border-radius: var(--radius); margin-bottom: 24px; }
+
+.detail-meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 16px;
+  margin: 0 0 36px;
+  padding: 16px 18px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--lh-orange);
+  border-radius: var(--radius);
+}
+
+.detail-meta dt { font-family: var(--mono); font-size: 11px; color: var(--text-dim); margin-bottom: 4px; }
+.detail-meta dd { margin: 0; font-size: 14px; }
+
+.gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; }
+.gallery .project-thumb { border: 1px solid var(--line); border-radius: var(--radius); }
 
 .contact-list { display: grid; grid-template-columns: max-content 1fr; gap: 14px 28px; margin: 0; }
 .contact-list dt { font-family: var(--mono); font-size: 12px; color: var(--text-dim); padding-top: 2px; }
@@ -315,7 +366,7 @@ body.time-night .layer-fg { filter: brightness(0.62); }
 
 @media (max-width: 640px) {
   .app-shell { flex-direction: column; }
-  .sidebar { width: 100%; height: auto; position: static; padding: 16px 0 14px; }
+  .sidebar { width: 100%; height: auto; position: relative; padding: 16px 0 14px; }
   .sidebar::after {
     top: auto; bottom: -9px; right: 0; width: 100%; height: 9px;
     background: linear-gradient(to bottom, var(--lh-blue-bright) 0 5px, var(--lh-blue-deep) 5px 9px);
@@ -335,4 +386,89 @@ body.time-night .layer-fg { filter: brightness(0.62); }
   .hero-text { left: 20px; right: 20px; bottom: 40px; }
   .hero-name { font-size: 32px; }
   .content { padding: 28px 20px 40px; }
+}
+
+/* ---------- PCB traces behind project cards (drawn by traces.js) ---------- */
+
+.pcb-overlay { position: absolute; z-index: 0; pointer-events: none; overflow: visible; }
+
+.pcb-card path {
+  fill: none;
+  stroke: var(--lh-orange);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset 0.25s ease;
+}
+
+.pcb-card circle {
+  fill: none;
+  stroke: var(--lh-orange);
+  stroke-width: 2;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+.pcb-card.is-on path {
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset 0.55s ease var(--d, 0s);
+}
+
+.pcb-card.is-on circle {
+  opacity: 1;
+  transition: opacity 0.2s ease calc(var(--d, 0s) + 0.45s);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pcb-card path, .pcb-card.is-on path, .pcb-card circle, .pcb-card.is-on circle { transition: none; }
+}
+
+/* ---------- featured project slots: caution-tape bands ---------- */
+
+.highlights { display: flex; flex-direction: column; gap: 14px; --slant: 30px; }
+
+.caution {
+  display: block;
+  padding: 14px calc(var(--slant) + 22px);
+  color: inherit;
+  text-decoration: none;
+  background: repeating-linear-gradient(135deg, var(--lh-orange) 0 26px, var(--lh-ink) 26px 44px);
+  clip-path: polygon(var(--slant) 0, 100% 0, calc(100% - var(--slant)) 100%, 0 100%);
+  transition: filter 0.15s ease, transform 0.15s ease;
+}
+
+.highlights .caution:nth-child(2) { width: 94%; }
+.highlights .caution:nth-child(3) { width: 98%; }
+.caution:hover { filter: brightness(1.12); transform: translateX(4px); }
+
+.caution-body {
+  background: var(--panel);
+  padding: 18px 40px 18px 44px;
+  text-align: center;
+  clip-path: polygon(18px 0, 100% 0, calc(100% - 18px) 100%, 0 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.caution-label { font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--lh-orange); }
+.caution-title { margin: 0; font-size: 20px; font-weight: 700; }
+.caution-text { margin: 0; max-width: 56ch; color: var(--text-dim); font-size: 14px; line-height: 1.55; }
+.caution-cta { margin-top: 4px; font-size: 13px; font-weight: 600; color: var(--lh-yellow); }
+.caution:hover .caution-cta { text-decoration: underline; }
+.caution:focus-visible { outline: none; }
+.caution:focus-visible .caution-body { box-shadow: inset 0 0 0 2px #fff; }
+
+@media (max-width: 640px) {
+  .highlights { --slant: 16px; }
+  .highlights .caution:nth-child(n) { width: 100%; }
+  .caution { padding: 10px calc(var(--slant) + 10px); }
+  .caution-body { padding: 16px 22px 16px 26px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .caution, .caution:hover { transition: none; transform: none; }
 }

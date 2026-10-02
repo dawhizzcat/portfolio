@@ -12,6 +12,7 @@
     <div class="sidebar-brand">Max Costa</div>
     <ul class="nav-list">
       <li><button class="nav-tab" data-section="home">Home</button></li>
+      <li><button class="nav-tab" data-section="experience">Experience</button></li>
       <li><button class="nav-tab" data-section="resume">Resume</button></li>
       <li><button class="nav-tab" data-section="projects">Projects</button></li>
       <li><button class="nav-tab" data-section="contact">Contact Me</button></li>
@@ -67,7 +68,45 @@
         </div>
 
         <div class="block">
-          <h2 class="block-title">Experience</h2>
+          <h2 class="block-title">Featured projects</h2>
+          <div class="highlights">
+            <a class="caution" href="project-1.html">
+              <div class="caution-body">
+                <span class="caution-label">Featured 01</span>
+                <h3 class="caution-title">Project name</h3>
+                <p class="caution-text">Placeholder: a short overview of the project and what makes it worth a look.</p>
+                <span class="caution-cta">View project &rarr;</span>
+              </div>
+            </a>
+            <a class="caution" href="project-2.html">
+              <div class="caution-body">
+                <span class="caution-label">Featured 02</span>
+                <h3 class="caution-title">Project name</h3>
+                <p class="caution-text">Placeholder: a short overview of the project and what makes it worth a look.</p>
+                <span class="caution-cta">View project &rarr;</span>
+              </div>
+            </a>
+            <a class="caution" href="project-3.html">
+              <div class="caution-body">
+                <span class="caution-label">Featured 03</span>
+                <h3 class="caution-title">Project name</h3>
+                <p class="caution-text">Placeholder: a short overview of the project and what makes it worth a look.</p>
+                <span class="caution-cta">View project &rarr;</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="section-view" id="section-experience">
+      <div class="content">
+        <div class="section-header">
+          <h1 class="section-title">Experience</h1>
+          <p class="section-sub">Clubs, competitions, research, volunteering, and jobs</p>
+        </div>
+        <div class="block">
           <ol class="timeline">
             <li class="job">
               <div class="job-head"><h3 class="job-title">Role Title</h3><span class="job-dates">2025 to present</span></div>
@@ -125,24 +164,33 @@
           <p class="section-sub">Selected hardware and software work</p>
         </div>
         <div class="project-grid">
-          <article class="project">
-            <h3 class="project-title">Project name</h3>
-            <p class="prose">Placeholder: one sentence on what it is and the problem it solves.</p>
-            <ul class="chips"><li>Firmware</li><li>PCB</li></ul>
-            <a class="project-link" href="#">View project</a>
-          </article>
-          <article class="project">
-            <h3 class="project-title">Project name</h3>
-            <p class="prose">Placeholder: one sentence on what it is and the problem it solves.</p>
-            <ul class="chips"><li>Python</li><li>Machine learning</li></ul>
-            <a class="project-link" href="#">View project</a>
-          </article>
-          <article class="project">
-            <h3 class="project-title">Project name</h3>
-            <p class="prose">Placeholder: one sentence on what it is and the problem it solves.</p>
-            <ul class="chips"><li>Web</li><li>Backend</li></ul>
-            <a class="project-link" href="#">View project</a>
-          </article>
+          <a class="project" href="project-1.html">
+            <div class="project-thumb"><!-- swap for: <img src="images/project-1.jpg" alt="Project name"> --><span>Thumbnail</span></div>
+            <div class="project-body">
+              <h3 class="project-title">Project name</h3>
+              <p class="prose">Placeholder: one sentence on what it is and the problem it solves.</p>
+              <ul class="chips"><li>Firmware</li><li>PCB</li></ul>
+              <span class="project-link">View details &rarr;</span>
+            </div>
+          </a>
+          <a class="project" href="project-2.html">
+            <div class="project-thumb"><!-- swap for: <img src="images/project-2.jpg" alt="Project name"> --><span>Thumbnail</span></div>
+            <div class="project-body">
+              <h3 class="project-title">Project name</h3>
+              <p class="prose">Placeholder: one sentence on what it is and the problem it solves.</p>
+              <ul class="chips"><li>Python</li><li>Machine learning</li></ul>
+              <span class="project-link">View details &rarr;</span>
+            </div>
+          </a>
+          <a class="project" href="project-3.html">
+            <div class="project-thumb"><!-- swap for: <img src="images/project-3.jpg" alt="Project name"> --><span>Thumbnail</span></div>
+            <div class="project-body">
+              <h3 class="project-title">Project name</h3>
+              <p class="prose">Placeholder: one sentence on what it is and the problem it solves.</p>
+              <ul class="chips"><li>Web</li><li>Backend</li></ul>
+              <span class="project-link">View details &rarr;</span>
+            </div>
+          </a>
         </div>
       </div>
     </section>
@@ -156,7 +204,7 @@
         </div>
         <div class="block">
           <dl class="contact-list">
-            <dt>Email</dt><dd><a href="mailto:maxwellcosta2009@gmail.com">you@example.com</a></dd>
+            <dt>Email</dt><dd><a href="mailto:maxwellcosta2009@gmail.com">maxwellcosta2009@gmail.com</a></dd>
             <dt>GitHub</dt><dd><a href="https://github.com/dawhizzcat">github.com/dawhizzcat</a></dd>
             <dt>LinkedIn</dt><dd><a href="https://www.linkedin.com/">linkedin.com/in/name</a></dd>
             <dt>Location</dt><dd>Amherst, Massachusetts</dd>
@@ -168,5 +216,6 @@
   </main>
 </div>
 <script src="main.js"></script>
+<script src="traces.js"></script>
 </body>
 </html>
